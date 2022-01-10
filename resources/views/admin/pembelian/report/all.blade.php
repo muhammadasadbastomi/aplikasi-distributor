@@ -144,14 +144,14 @@
                          @foreach($d->pembelian_detail as $d)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$d->sparepart->partNumber}}</td>
-                                <td>{{$d->sparepart->deskripsi}}</td>
+                                <td>{{$d->barang->partNumber}}</td>
+                                <td>{{$d->barang->deskripsi}}</td>
                                 <td>{{$d->jumlahSj}}</td>
                                 <td>{{$d->jumlahRfs}}</td>
                                 <td>{{$d->rak->kodeLokasi}}</td>
                                 <td>@currency($d->hargaBeli)</td>
                                 <td>@currency($d->hargaBeli * $d->jumlahSj)</td>
-                                <td>@currency($d->sparepart->stok->hargaJual)</td>
+                                <td>@currency($d->barang->stok->hargaJual)</td>
                             </tr>
                          @endforeach
                      </tr>

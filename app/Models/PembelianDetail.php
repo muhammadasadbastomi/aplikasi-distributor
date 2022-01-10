@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Rak;
-use App\Models\Sparepart;
+use App\Models\Barang;
 use App\Models\PembelianDetail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,9 +17,9 @@ class PembelianDetail extends Model
         return $this->belongsTo(Rak::class);
     }
 
-    public function sparepart()
+    public function barang()
     {
-        return $this->belongsTo(Sparepart::class);
+        return $this->belongsTo(Barang::class);
     }
     
 }

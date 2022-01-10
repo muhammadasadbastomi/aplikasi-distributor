@@ -109,55 +109,33 @@
     <div class="container">
         <hr style="margin-top:1px;">
         <div class="isi">
-            <h2 style="text-align:center;">LAPORAN DATA SPAREPART</h2>
+            <h2 style="text-align:center;">LAPORAN DATA BARANG</h2>
             <br>
             <table id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" style="font-size: 10px !important; " role="grid"
                 aria-describedby="myTable_info">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Part Number</th>
-                        <th>Deskripsi Part</th>
-                        <th>Part Reference</th>
+                        <th>Kode Item</th>
+                        <th>Deskripsi Item</th>
+                        <th>Berat</th>
                         <th>Kode Supplier</th>
                         <th>Kode Group Sales</th>
-                        <th>Part Status</th>
                         <th>HET</th>
                         <th>Harga Pokok</th>
-                        <th>MOQ DK</th>
-                        <th>MOQ DM</th>
-                        <th>MOQ DB</th>
-                        <th>Part Number Type</th>
-                        <th>Part Moving</th>
-                        <th>Part Source</th>
-                        <th>Part Current</th>
-                        <th>Part Type</th>
-                        <th>Part Lifetime</th>
-                        <th>Part Group</th>
                     </tr>
                 </thead>
-                 <tbody  >
+                 <tbody >
                      @foreach($data as $d)
                      <tr>
                          <td>{{$loop->iteration}}</td>
-                         <td>{{$d->partNumber}}</td>
+                         <td>{{$d->itemCode}}</td>
                          <td>{{$d->deskripsi}}</td>
-                         <td>{{$d->partReference}}</td>
+                         <td>{{$d->berat}}</td>
                          <td>{{$d->kodeSupplier}}</td>
                          <td>{{$d->kodeGroupSales}}</td>
-                         <td>{{$d->partStatus}}</td>
                          <td>@currency($d->HET)</td>
                          <td>@currency($d->hargaPokok)</td>
-                         <td>{{$d->moqDk}}</td>
-                         <td>{{$d->moqDm}}</td>
-                         <td>{{$d->moqDb}}</td>
-                         <td>{{$d->partNumberType}}</td>
-                         <td>{{$d->partMoving}}</td>
-                         <td>{{$d->partSource}}</td>
-                         <td>{{$d->partCurrent}}</td>
-                         <td>{{$d->partType}}</td>
-                         <td>{{$d->partLifetime}}</td>
-                         <td>{{$d->partGroup}}</td>
                      </tr>
                      @endforeach
                  </tbody>

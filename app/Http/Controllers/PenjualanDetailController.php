@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use App\Models\Rak;
 use App\Models\Stok;
 use App\Models\Penjualan;
-use App\Models\Sparepart;
+use App\Models\Barang;
 use Illuminate\Http\Request;
 use App\Models\PenjualanDetail;
 
@@ -33,16 +33,16 @@ class PenjualanDetailController extends Controller
     public function create($id)
     {
         $penjualan =  Penjualan::findOrFail($id);
-        $sparepart = Sparepart::with('stok')->whereRelation('stok','stok', '>', 0)->get();
+        $barang = Barang::with('stok')->whereRelation('stok','stok', '>', 0)->get();
 
-        $sparepart->map(function($item){
+        $barang->map(function($item){
             $item['jumlahStok'] = $item->stok->stok;
             $item['hargaJual'] = $item->stok->hargaJual;
             return $item;
         });
         // $date = Carbon::now()->format('Ym');
         // $noTransaksi = 'RC'.random_int(100000, 999999).$date;
-        return view('admin.penjualanDetail.create',compact('penjualan','sparepart'));
+        return view('admin.penjualanDetail.create',compact('penjualan','barang'));
     }
 
     /**
@@ -54,7 +54,7 @@ class PenjualanDetailController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();;
-        $stok = Stok::whereSparepartId($request->sparepart_id)->first();
+        $stok = Stok::whereBarangId($request->barang_id)->first();
         if($stok->stok < $request->jumlah)
         {
             return back()->withWarning('Stok tidak mencukupi');
@@ -88,14 +88,14 @@ class PenjualanDetailController extends Controller
      */
     public function edit(PenjualanDetail $penjualanDetail)
     {
-        $sparepart = Sparepart::with('stok')->whereRelation('stok','stok', '>', 0)->get();
+        $barang = Barang::with('stok')->whereRelation('stok','stok', '>', 0)->get();
 
-        $sparepart->map(function($item){
+        $barang->map(function($item){
             $item['jumlahStok'] = $item->stok->stok;
             $item['hargaJual'] = $item->stok->hargaJual;
             return $item;
         });
-        return view('admin.penjualanDetail.edit',compact('penjualanDetail','sparepart'));
+        return view('admin.penjualanDetail.edit',compact('penjualanDetail','barang'));
     }
 
     /**
@@ -107,31 +107,31 @@ class PenjualanDetailController extends Controller
      */
     public function update(Request $request, PenjualanDetail $penjualanDetail)
     {
-        $stok = Stok::whereSparepartId($penjualanDetail->sparepart_id)->first();
+        $stok = Stok::whereBarangId($penjualanDetail->barang_id)->first();
+        $jumlahStok = $stok->stok;
+
+        $input = $request->all();
 
         if($stok->stok < $request->jumlah)
         {
             return back()->withWarning('Stok tidak mencukupi');
         }else{
 
-            $penjualanDetail = PenjualanDetail::create($input);
-                $stok->stok = $stok->stok - $penjualanDetail->jumlah;
+            $jumlahOld = $penjualanDetail->jumlah;
+            $jumlahNew = $request->jumlah;
+            if ($jumlahNew < $jumlahOld){
+                $diff = $jumlahOld - $jumlahNew;
+                $stok->stok = $jumlahStok + $diff;
+            }else if($jumlahNew > $jumlahOld){
+                $diff = $jumlahNew - $jumlahOld;
+                $stok->stok = $jumlahStok - $diff;
+            }
+                $stok->hargaJual = $request->hargaJual;
                 $stok->update();
-        }
-        $jumlahOld = $penjualanDetail->jumlahSj;
-        $jumlahNew = $request->jumlahSj;
-        if ($jumlahNew < $jumlahOld){
-            $diff = $jumlahOld - $jumlahNew;
-            $stok->stok = $stok->stok - $diff;
-        }else if($jumlahNew > $jumlahOld){
-            $diff = $jumlahNew - $jumlahOld;
-            $stok->stok = $stok->stok + $diff;
-        }
-            $stok->hargaJual = $request->hargaJual;
-            $stok->update();
 
-        $penjualanDetail->update($request->all());
-        return redirect()->route('admin.penjualan.show',$penjualanDetail->penjualan_id)->withSuccess('Data berhasil diubah');
+            $penjualanDetail->update($request->all());
+            return redirect()->route('admin.penjualan.show',$penjualanDetail->penjualan_id)->withSuccess('Data berhasil diubah');
+        }
         // return redirect()->route('admin.penjualanDetail.index')->withSuccess('Data berhasil diubah');
     }
 

@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('nama');
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('foto');
+            $table->string('foto')->default('ART.png');
             $table->tinyInteger('role')->default(0);
             $table->timestamps();
         });

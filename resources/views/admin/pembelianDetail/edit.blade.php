@@ -23,11 +23,11 @@
             @method('put')
          <div class="row">
             <div class="mb-3 col">
-                <label for="formFile" class="form-label">Sparepart</label>
-                <select name="sparepart_id" id="" class="form-select form-select-sm mb-3" required>
-                    @foreach ($sparepart as $d)
-                    <option value="">Pilih Sparepart</option>
-                    <option value="{{$d->id}}" {{$pembelianDetail->sparepart_id ==  $d->id ? 'selected' : ''}}>{{$d->partNumber}} - {{$d->deskripsi}}</option>
+                <label for="formFile" class="form-label">Barang</label>
+                <select name="barang_id" id="" class="form-select form-select-sm mb-3" required>
+                    @foreach ($barang as $d)
+                    <option value="">Pilih Barang</option>
+                    <option value="{{$d->id}}" {{$pembelianDetail->barang_id ==  $d->id ? 'selected' : ''}}>{{$d->partNumber}} - {{$d->deskripsi}}</option>
                     @endforeach
                 </select>
             </div>
@@ -48,11 +48,11 @@
             </div>
             <div class="mb-3 col">
                 <label for="formFile" class="form-label">Quantity</label>
-                <input class="form-control form-control-sm mb-3" type="number" name="jumlahSj" value="{{$pembelianDetail->jumlahSj}}" placeholder="Quantity" aria-label="default input example" required>
+                <input class="form-control form-control-sm mb-3" type="number" name="jumlah" value="{{$pembelianDetail->jumlah}}" placeholder="Quantity" aria-label="default input example" required>
             </div>
             <div class="mb-3 col">
                 <label for="formFile" class="form-label">Harga Jual/Pcs</label>
-                <input class="form-control form-control-sm mb-3" type="number" name="hargaJual" value="{{$pembelianDetail->hargaJual}}" placeholder="Harga Jual/Pcs" aria-label="default input example" required>
+                <input class="form-control form-control-sm mb-3" type="number" name="hargaJual" value="{{$pembelianDetail->barang->stok->hargaJual}}" placeholder="Harga Jual/Pcs" aria-label="default input example" required>
             </div>
         </div>
     </div>

@@ -17,11 +17,11 @@ class CreatePenjualanDetailsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('penjualan_id');
             $table->foreign('penjualan_id')->references('id')->on('penjualans')->onDelete('restrict');
-            $table->unsignedBigInteger('sparepart_id');
-            $table->foreign('sparepart_id')->references('id')->on('spareparts')->onDelete('restrict');
+            $table->unsignedBigInteger('barang_id');
+            $table->foreign('barang_id')->references('id')->on('barangs')->onDelete('restrict');
             $table->string('jumlah');
             $table->string('hargaJual');
-            $table->string('diskon')->nullable();
+            // $table->string('diskon')->nullable();
             $table->timestamps();
         });
     }

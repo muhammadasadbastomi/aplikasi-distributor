@@ -5,7 +5,7 @@
     <div class="col-12 d-flex">
         <div class="card radius-10 w-100">
            <div class="card-header text-center">
-               <h5>Selamat Datang Di Aplikasi Stok Dan Penjualan Sparepart Sepeda Motor Honda Pada AHASS Haji As</h5>
+               <h5>Selamat Datang Di Aplikasi Stok Dan Penjualan Barang Sepeda Motor Honda Pada AHASS Haji As</h5>
            </div>
         </div>
     </div>

@@ -31,7 +31,7 @@
     <link href="{{asset('assets/css/header-colors.css')}}" rel="stylesheet" />
     @yield('css')
 
-    <title>Aplikasi Stok Dan Penjualan Sparepart Sepeda Motor Honda Pada AHASS Haji As</title>
+    <title>Aplikasi Stok Dan Penjualan Barang Sepeda Motor Honda Pada AHASS Haji As</title>
 </head>
 
 <body>
@@ -80,7 +80,11 @@
                             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#"
                                 data-bs-toggle="dropdown">
                                 <div class="user-setting d-flex align-items-center gap-1">
+                                    @if (Auth::user()->foto == 'ART.png')
+                                    <img src="{{asset(Auth::user()->foto)}}" class="user-img" alt="">
+                                    @else
                                     <img src="{{asset('storage/user/'.Auth::user()->foto)}}" class="user-img" alt="">
+                                    @endif
                                     <div class="user-name d-none d-sm-block">{{Auth::user()->nama}}</div>
                                 </div>
                             </a>
@@ -614,7 +618,7 @@
                     <ul>
                         <li class="{{ Request::is('admin/user/*') ? 'mm-active' : '' }}"> <a href="{{route('admin.user.index')}}"><i class="bi bi-arrow-right-short"></i>User</a>
                         </li>
-                        <li class="{{ Request::is('admin/sparepart/*') ? 'mm-active' : '' }}"> <a href="{{route('admin.sparepart.index')}}"><i class="bi bi-arrow-right-short"></i>Sparepart</a>
+                        <li class="{{ Request::is('admin/barang/*') ? 'mm-active' : '' }}"> <a href="{{route('admin.barang.index')}}"><i class="bi bi-arrow-right-short"></i>Barang</a>
                         </li>
                         <li class="{{ Request::is('admin/rak/*') ? 'mm-active' : '' }}"> <a href="{{route('admin.rak.index')}}"><i class="bi bi-arrow-right-short"></i>Lokasi/Rak/Bin</a>
                         </li>

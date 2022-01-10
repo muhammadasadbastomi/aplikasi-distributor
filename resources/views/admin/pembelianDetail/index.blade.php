@@ -42,10 +42,9 @@
                            <thead>
                                <tr>
                                    <th>No</th>
-                                   <th>Part Number</th>
-                                   <th>Part Deskripsi</th>
-                                   <th>Qty SJ (PCS)</th>
-                                   <th>Jumlah RFS</th>
+                                   <th>Kode Item</th>
+                                   <th>Deskripsi Item</th>
+                                   <th>Qty (PCS)</th>
                                    <th>Rak</th>
                                    <th>Harga Beli/Pcs</th>
                                    <th>Total Harga Netto</th>
@@ -57,10 +56,9 @@
                                 @foreach($pembelianDetail as $d)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$d->sparepart->partNumber}}</td>
-                                    <td>{{$d->sparepart->deskripsi}}</td>
-                                    <td>{{$d->jumlahSj}}</td>
-                                    <td>{{$d->jumlahRfs}}</td>
+                                    <td>{{$d->barang->itemCode}}</td>
+                                    <td>{{$d->barang->deskripsi}}</td>
+                                    <td>{{$d->jumlah}}</td>
                                     <td>{{$d->rak->kodeLokasi}}</td>
                                     <td>@currency($d->hargaBeli)</td>
                                     <td>@currency($d->totalHarga)</td>

@@ -140,8 +140,8 @@
                          @foreach($d->penjualan_detail as $d)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$d->sparepart->partNumber}}</td>
-                                <td>{{$d->sparepart->deskripsi}}</td>
+                                <td>{{$d->barang->partNumber}}</td>
+                                <td>{{$d->barang->deskripsi}}</td>
                                 <td>{{$d->jumlah}}</td>
                                 <td>@currency($d->hargaJual)</td>
                                 @php 

@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use App\Models\Rak;
 use App\Models\Stok;
 use App\Models\Pembelian;
-use App\Models\Sparepart;
+use App\Models\Barang;
 use Illuminate\Http\Request;
 use App\Models\PembelianDetail;
 
@@ -33,11 +33,11 @@ class PembelianDetailController extends Controller
     public function create($id)
     {
         $pembelian =  Pembelian::findOrFail($id);
-        $sparepart = Sparepart::all();
+        $barang = Barang::all();
         $rak = Rak::all();
         // $date = Carbon::now()->format('Ym');
         // $noTransaksi = 'RC'.random_int(100000, 999999).$date;
-        return view('admin.pembelianDetail.create',compact('pembelian','sparepart','rak'));
+        return view('admin.pembelianDetail.create',compact('pembelian','barang','rak'));
     }
 
     /**
@@ -49,14 +49,14 @@ class PembelianDetailController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        $input['jumlahRfs'] = $request->jumlahSj;
+        $input['jumlahRfs'] = $request->jumlah;
         $pembelianDetail = PembelianDetail::create($input);
-        $stok = Stok::whereSparepartId($pembelianDetail->sparepart_id)->first();
+        $stok = Stok::whereBarangId($pembelianDetail->barang_id)->first();
         if(!$stok){
-            $input['stok'] = $pembelianDetail->jumlahSj;
+            $input['stok'] = $pembelianDetail->jumlah;
             $stok = Stok::create($input);
         }else{
-            $stok->stok = $stok->stok + $pembelianDetail->jumlahSj;
+            $stok->stok = $stok->stok + $pembelianDetail->jumlah;
             $stok->hargaJual = $request->hargaJual;
             $stok->update();
         }
@@ -84,9 +84,9 @@ class PembelianDetailController extends Controller
      */
     public function edit(PembelianDetail $pembelianDetail)
     {
-        $sparepart = Sparepart::all();
+        $barang = Barang::all();
         $rak = Rak::all();
-        return view('admin.pembelianDetail.edit',compact('pembelianDetail','sparepart','rak'));
+        return view('admin.pembelianDetail.edit',compact('pembelianDetail','barang','rak'));
     }
 
     /**
@@ -98,10 +98,10 @@ class PembelianDetailController extends Controller
      */
     public function update(Request $request, PembelianDetail $pembelianDetail)
     {
-        $stok = Stok::whereSparepartId($pembelianDetail->sparepart_id)->first();
+        $stok = Stok::whereBarangId($pembelianDetail->barang_id)->first();
 
-        $jumlahOld = $pembelianDetail->jumlahSj;
-        $jumlahNew = $request->jumlahSj;
+        $jumlahOld = $pembelianDetail->jumlah;
+        $jumlahNew = $request->jumlah;
         if ($jumlahNew < $jumlahOld){
             $diff = $jumlahOld - $jumlahNew;
             $stok->stok = $stok->stok - $diff;

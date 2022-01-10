@@ -128,8 +128,8 @@
                      <tr>
                          <td>{{$loop->iteration}}</td>
                          <td>{{$d->rak->gudang}}</td>
-                         <td>{{$d->sparepart->partNumber}}</td>
-                         <td>{{$d->sparepart->deskripsi}}</td>
+                         <td>{{$d->barang->partNumber}}</td>
+                         <td>{{$d->barang->deskripsi}}</td>
                          <td>{{$d->stok}}</td>
                          <td>@currency($d->hargaJual)</td>
                      </tr>
