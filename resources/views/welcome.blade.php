@@ -18,7 +18,7 @@
     <link href="{{asset('assets/css/pace.min.css')}}" rel="stylesheet" />
     <link href="{{asset('iziToast/iziToast.css')}}" rel="stylesheet">
 
-    <title>Aplikasi Stok Dan Penjualan Barang Sepeda Motor Honda Pada AHASS Haji As</title>
+    <title>Aplikasi Stok Dan Penjualan Kapal Api Pada PT.Pulau Baru Jaya</title>
 </head>
 
 <body class="bg-surface">

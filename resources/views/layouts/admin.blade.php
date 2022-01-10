@@ -31,7 +31,7 @@
     <link href="{{asset('assets/css/header-colors.css')}}" rel="stylesheet" />
     @yield('css')
 
-    <title>Aplikasi Stok Dan Penjualan Barang Sepeda Motor Honda Pada AHASS Haji As</title>
+    <title>Aplikasi Stok Dan Penjualan Kapal Api Pada PT.Pulau Baru Jaya</title>
 </head>
 
 <body>
