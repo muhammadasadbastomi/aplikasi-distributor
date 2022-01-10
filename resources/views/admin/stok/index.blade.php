@@ -41,8 +41,8 @@
                                <tr>
                                    <th>No</th>
                                    <th>Nama Gudang</th>
-                                   <th>Part Number</th>
-                                   <th>Nama Part</th>
+                                   <th>Kode Item</th>
+                                   <th>Nama Item</th>
                                    <th>Stok</th>
                                    <th>Harga Jual</th>
                                </tr>
@@ -52,8 +52,8 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->rak->gudang}}</td>
-                                    <td>{{$d->sparepart->partNumber}}</td>
-                                    <td>{{$d->sparepart->deskripsi}}</td>
+                                    <td>{{$d->barang->itemCode}}</td>
+                                    <td>{{$d->barang->deskripsi}}</td>
                                     <td>{{$d->stok}}</td>
                                     <td>@currency($d->hargaJual)</td>
                                 </tr>

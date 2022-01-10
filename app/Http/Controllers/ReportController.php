@@ -10,7 +10,7 @@ use App\Models\Stok;
 use App\Models\User;
 use App\Models\Pembelian;
 use App\Models\Penjualan;
-use App\Models\Sparepart;
+use App\Models\Barang;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -36,15 +36,15 @@ class ReportController extends Controller
         return $pdf->stream('Laporan Semua User.pdf');
     }
 
-    public function sparepartAll()
+    public function barangAll()
     {
-        $data = Sparepart::all();
+        $data = Barang::all();
         $now = $this->now;
         $ttdName = $this->ttdName;
-        $pdf = PDF::loadView('admin.sparepart.report.all', ['data' => $data, 'now' => $now , 'ttdName' => $ttdName]);
+        $pdf = PDF::loadView('admin.barang.report.all', ['data' => $data, 'now' => $now , 'ttdName' => $ttdName]);
         $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Semua Sparepart.pdf');
+        return $pdf->stream('Laporan Semua Barang.pdf');
     }
 
     public function rakAll()

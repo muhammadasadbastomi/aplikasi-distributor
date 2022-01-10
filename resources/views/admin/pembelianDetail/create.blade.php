@@ -23,10 +23,10 @@
         <input type="hidden" value="{{$pembelian->id}}" name="pembelian_id" required readonly>
         <div class="row">
             <div class="mb-3 col">
-                <label for="formFile" class="form-label">Sparepart</label>
-                <select name="sparepart_id" id="" class="form-select form-select-sm mb-3" required>
-                    @foreach ($sparepart as $d)
-                    <option value="">Pilih Sparepart</option>
+                <label for="formFile" class="form-label">Barang</label>
+                <select name="barang_id" id="" class="form-select form-select-sm mb-3" required>
+                    @foreach ($barang as $d)
+                    <option value="">Pilih Barang</option>
                     <option value="{{$d->id}}">{{$d->partNumber}} - {{$d->deskripsi}}</option>
                     @endforeach
                 </select>
@@ -48,7 +48,7 @@
             </div>
             <div class="mb-3 col">
                 <label for="formFile" class="form-label">Quantity</label>
-                <input class="form-control form-control-sm mb-3" type="number" name="jumlahSj" placeholder="Quantity" aria-label="default input example" required>
+                <input class="form-control form-control-sm mb-3" type="number" name="jumlah" placeholder="Quantity" aria-label="default input example" required>
             </div>
             <div class="mb-3 col">
                 <label for="formFile" class="form-label">Harga Jual/Pcs</label>

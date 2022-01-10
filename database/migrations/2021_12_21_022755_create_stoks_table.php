@@ -15,8 +15,8 @@ class CreateStoksTable extends Migration
     {
         Schema::create('stoks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('sparepart_id');
-            $table->foreign('sparepart_id')->references('id')->on('spareparts')->onDelete('restrict');
+            $table->unsignedBigInteger('barang_id');
+            $table->foreign('barang_id')->references('id')->on('barangs')->onDelete('restrict');
             $table->unsignedBigInteger('rak_id');
             $table->foreign('rak_id')->references('id')->on('raks')->onDelete('restrict');
             $table->string('stok');

@@ -17,12 +17,11 @@ class CreatePembelianDetailsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('pembelian_id');
             $table->foreign('pembelian_id')->references('id')->on('pembelians')->onDelete('restrict');
-            $table->unsignedBigInteger('sparepart_id');
-            $table->foreign('sparepart_id')->references('id')->on('spareparts')->onDelete('restrict');
+            $table->unsignedBigInteger('barang_id');
+            $table->foreign('barang_id')->references('id')->on('barangs')->onDelete('restrict');
             $table->unsignedBigInteger('rak_id');
             $table->foreign('rak_id')->references('id')->on('raks')->onDelete('restrict');
-            $table->string('jumlahSj');
-            $table->string('jumlahRfs');
+            $table->string('jumlah');
             $table->string('hargaBeli');
             $table->timestamps();
         });

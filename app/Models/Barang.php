@@ -7,7 +7,7 @@ use App\Models\PembelianDetail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Sparepart extends Model
+class Barang extends Model
 {
     protected $guarded = ['id'];
 

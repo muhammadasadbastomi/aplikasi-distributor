@@ -15,8 +15,8 @@ class PenjualanDetail extends Model
         return $this->belongsTo(Penjualan::class);
     }
 
-    public function sparepart()
+    public function barang()
     {
-        return $this->belongsTo(Sparepart::class);
+        return $this->belongsTo(Barang::class);
     }
 }

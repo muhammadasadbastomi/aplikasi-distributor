@@ -55,9 +55,9 @@ class PembelianController extends Controller
     public function show(Pembelian $pembelian)
     {
         $pembelianDetail = $pembelian->pembelian_detail->map(function($item){
-            $item['totalHarga'] = $item->hargaBeli * $item->jumlahSj;
+            $item['totalHarga'] = $item->hargaBeli * $item->jumlah;
 
-            $item['hargaJual'] = $item->sparepart->stok->hargaJual;
+            $item['hargaJual'] = $item->barang->stok->hargaJual;
 
             return $item;
         });

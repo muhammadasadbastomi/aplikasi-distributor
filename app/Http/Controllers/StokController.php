@@ -16,9 +16,9 @@ class StokController extends Controller
     {
         $data = Stok::all();
         // $data->map(function($item){
-        //     $sparepart = $item->sparepart;
-        //     $hargaMin = $sparepart->pembelian_detail->min('hargaJual');
-        //     $hargaMax = $sparepart->pembelian_detail->max('hargaJual');
+        //     $barang = $item->barang;
+        //     $hargaMin = $barang->pembelian_detail->min('hargaJual');
+        //     $hargaMax = $barang->pembelian_detail->max('hargaJual');
         //         $hargaJual = $hargaMin .' - '. $hargaMax;
         //         $item['hargaJual'] = $hargaJual;
         //     return $item;

@@ -42,11 +42,10 @@
                            <thead>
                                <tr>
                                    <th>No</th>
-                                   <th>Part Number</th>
-                                   <th>Part Deskripsi</th>
+                                   <th>Kode Item</th>
+                                   <th>Deskripsi Item</th>
                                    <th>Jumlah</th>
                                    <th>Harga</th>
-                                   <th>Diskon</th>
                                    <th>Total Harga</th>
                                    <th>Aksi</th>
                                </tr>
@@ -55,11 +54,11 @@
                                 @foreach($penjualanDetail as $d)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$d->sparepart->partNumber}}</td>
-                                    <td>{{$d->sparepart->deskripsi}}</td>
+                                    <td>{{$d->barang->itemCode}}</td>
+                                    <td>{{$d->barang->deskripsi}}</td>
                                     <td>{{$d->jumlah}}</td>
                                     <td>@currency($d->hargaJual)</td>
-                                    <td>{{$d->diskon}}%</td>
+                                    {{-- <td>{{$d->diskon}}%</td> --}}
                                     <td>@currency($d->hargaTotal)</td>
                                     <td>
                                     <div class="btn-group">

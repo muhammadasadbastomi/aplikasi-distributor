@@ -9,7 +9,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PenjualanController;
-use App\Http\Controllers\SparepartController;
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\PembelianDetailController;
 use App\Http\Controllers\PenjualanDetailController;
 
@@ -42,7 +42,7 @@ Route::middleware(['auth'])->group(function () {
         Route::name('user.')->prefix('user')->group(function(){
             Route::delete('{user}/destroy', [UserController::class, 'destroy'])->name('destroy');
         });
-        Route::resource('sparepart', SparepartController::class);
+        Route::resource('barang', BarangController::class);
         Route::resource('rak', RakController::class);
         Route::resource('pembelian', PembelianController::class);
         Route::resource('pembelianDetail', PembelianDetailController::class)->except('index','create');
@@ -78,7 +78,7 @@ Route::middleware(['auth'])->group(function () {
         Route::name('report.')->prefix('laporan')->group(function () {
             // Route::get('kegiatan', [ReportController::class, 'kegiatanIndex'])->name('kegiatanIndex');
             Route::get('/cetak/user', [ReportController::class, 'userAll'])->name('userAll');
-            Route::get('/cetak/sparepart', [ReportController::class, 'sparepartAll'])->name('sparepartAll');
+            Route::get('/cetak/barang', [ReportController::class, 'barangAll'])->name('barangAll');
             Route::get('/cetak/rak', [ReportController::class, 'rakAll'])->name('rakAll');
             Route::get('/cetak/stok', [ReportController::class, 'stokAll'])->name('stokAll');
             Route::get('/cetak/stok-hampir-habis', [ReportController::class, 'stokLow'])->name('stokLow');

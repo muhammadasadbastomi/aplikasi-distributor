@@ -23,10 +23,10 @@
         <input type="hidden" value="{{$penjualan->id}}" name="penjualan_id" required readonly>
         <div class="row">
             <div class="mb-3 col">
-                <label for="formFile" class="form-label">Sparepart</label>
-                <select name="sparepart_id" id="sparepart_id" class="form-select form-select-sm mb-3" required>
-                    @foreach ($sparepart as $d)
-                    <option value="">Pilih Sparepart</option>
+                <label for="formFile" class="form-label">Barang</label>
+                <select name="barang_id" id="barang_id" class="form-select form-select-sm mb-3" required>
+                    @foreach ($barang as $d)
+                    <option value="">Pilih Barang</option>
                     <option value="{{$d->id}}" data-harga="{{$d->hargaJual}}">{{$d->partNumber}} - {{$d->deskripsi}} | Stok : {{$d->jumlahStok}}</option>
                     @endforeach
                 </select>
@@ -41,10 +41,6 @@
                 <label for="formFile" class="form-label">Harga Jual/Pcs</label>
                 <input class="form-control form-control-sm mb-3" type="number" id="hargaJual" name="hargaJual" placeholder="Harga Jual/Pcs" aria-label="default input example" required readonly>
             </div>
-            <div class="mb-3 col">
-                <label for="formFile" class="form-label">Diskon %</label>
-                <input class="form-control form-control-sm mb-3" type="number" name="diskon" placeholder="%" aria-label="default input example" >
-            </div>
         </div>
     </div>
     
@@ -58,7 +54,7 @@
 @endsection
 @section('script')
     <script>
-        $( "#sparepart_id" ).change(function() {
+        $( "#barang_id" ).change(function() {
             hargaJual = $(this).find(':selected').data('harga')
 
             $('#hargaJual').val(hargaJual);

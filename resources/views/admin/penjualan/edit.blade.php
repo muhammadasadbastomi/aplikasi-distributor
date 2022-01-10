@@ -27,11 +27,11 @@
         </div>
         <div class="mb-3">
             <label for="formFile" class="form-label">Tanggal penjualan</label>
-            <input class="form-control form-control-sm mb-3" type="date" name="tanggalpenjualan" value="{{$penjualan->tanggalpenjualan}}" placeholder="Tanggal penjualan" aria-label="default input example" required>
+            <input class="form-control form-control-sm mb-3" type="date" name="tanggalpenjualan" value="{{$penjualan->tanggalPenjualan}}" placeholder="Tanggal penjualan" aria-label="default input example" required>
         </div>
         <div class="mb-3">
-            <label for="formFile" class="form-label">no Faktur</label>
-            <input class="form-control form-control-sm mb-3" type="text" name="noFaktur" value="{{$penjualan->noFaktur}}" placeholder="no Faktur" aria-label="default input example" required>
+            <label for="formFile" class="form-label">Nama Customer</label>
+            <input class="form-control form-control-sm mb-3" type="text" name="namaCustomer" value="{{$penjualan->namaCustomer}}" placeholder="Nama Customer" aria-label="default input example" required>
         </div>
     </div>
     

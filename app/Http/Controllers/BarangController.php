@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Exception;
-use App\Models\Sparepart;
+use App\Models\Barang;
 use Illuminate\Http\Request;
 
-class SparepartController extends Controller
+class BarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class SparepartController extends Controller
      */
     public function index()
     {
-        $data = Sparepart::all();
+        $data = Barang::all();
 
-        return view('admin.sparepart.index',compact('data'));
+        return view('admin.barang.index',compact('data'));
     }
 
     /**
@@ -27,7 +27,7 @@ class SparepartController extends Controller
      */
     public function create()
     {
-        return view('admin.sparepart.create');
+        return view('admin.barang.create');
     }
 
     /**
@@ -38,18 +38,18 @@ class SparepartController extends Controller
      */
     public function store(Request $request)
     {
-        Sparepart::create($request->all());
+        Barang::create($request->all());
 
-        return redirect()->route('admin.sparepart.index')->withSuccess('Data berhasil disimpan');
+        return redirect()->route('admin.barang.index')->withSuccess('Data berhasil disimpan');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Sparepart  $sparepart
+     * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function show(Sparepart $sparepart)
+    public function show(Barang $barang)
     {
         //
     }
@@ -57,37 +57,37 @@ class SparepartController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Sparepart  $sparepart
+     * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sparepart $sparepart)
+    public function edit(Barang $barang)
     {
-        return view('admin.sparepart.edit',compact('sparepart'));
+        return view('admin.barang.edit',compact('barang'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Sparepart  $sparepart
+     * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sparepart $sparepart)
+    public function update(Request $request, Barang $barang)
     {
-        $sparepart->update($request->all());
-        return redirect()->route('admin.sparepart.index')->withSuccess('Data berhasil diubah');
+        $barang->update($request->all());
+        return redirect()->route('admin.barang.index')->withSuccess('Data berhasil diubah');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Sparepart  $sparepart
+     * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sparepart $sparepart)
+    public function destroy(Barang $barang)
     {
         try {
-            $sparepart->delete();
+            $barang->delete();
             return back()->withSuccess('Data berhasil dihapus');
         } catch (Exception $exception) {
             return notify()->warning($exception->getMessage());
