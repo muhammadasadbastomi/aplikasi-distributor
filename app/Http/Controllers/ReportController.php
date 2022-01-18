@@ -19,7 +19,7 @@ class ReportController extends Controller
     {
         $this->now = Carbon::now()->translatedFormat('d F Y');
 
-        $this->ttdName = 'Muhammad';
+        $this->ttdName = 'Pramudya Ananda';
     }
     public function kegiatanIndex()
     {
