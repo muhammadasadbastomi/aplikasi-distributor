@@ -99,9 +99,9 @@
             <img class="pemko" src="ART.png">
         </div>
         <div class="headtext">
-            <h2 style="margin:0px;">BENGKEL RESMI HONDA AHASS HAJI AS </h2>
-            <h3 style="margin:0px;">KECAMATAN BANJARMASIN SELATAN </h3>
-            <p style="margin:0px;">Kelayan Sel., Kec. Banjarmasin Sel., Kota Banjarmasin, Kalimantan Selatan 70111
+            <h2 style="margin:0px;">PT. PULAU BARU JAYA </h2>
+            <h3 style="margin:0px;">KECAMATAN BANJARMASIN TIMUR </h3>
+            <p style="margin:0px;">Jl. A.Yani Km 5.5 No.56, Pemurus Luar
             </p>
         </div>
         <br>
