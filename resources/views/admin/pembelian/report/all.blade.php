@@ -51,7 +51,9 @@
         }
 
         .pemko {
-            width: 120px;
+            margin-top: -50px !important;
+            width: 100%;
+            height: 180px;
         }
 
         .logo {
@@ -101,7 +103,7 @@
         <div class="headtext">
             <h2 style="margin:0px;">PT. PULAU BARU JAYA </h2>
             <h3 style="margin:0px;">KECAMATAN BANJARMASIN TIMUR </h3>
-            <p style="margin:0px;">Jl. A.Yani Km 5.5 No.56, Pemurus Luar
+            <p style="margin:0px;">Jl. A.Yani Km 5.5 No.56, Pemurus Luar, Banjarmasin Timur, Kota Banjarmasin, Kalimantan Selatan 70238
             </p>
         </div>
         <br>
@@ -119,7 +121,7 @@
                         <th>Tanggal Pembelian</th>
                         <th>No Transaksi</th>
                         <th colspan="2">No Faktur</th>
-                        <th rowspan="2">Jumlah RFS</th>
+                        <th rowspan="2">Jumlah </th>
                         <th rowspan="2">Rak</th>
                         <th rowspan="2">Harga Beli/Pcs</th>
                         <th rowspan="2">Total Harga Netto</th>
@@ -146,11 +148,11 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$d->barang->partNumber}}</td>
                                 <td>{{$d->barang->deskripsi}}</td>
-                                <td>{{$d->jumlahSj}}</td>
+                                <td>{{$d->jumlah}}</td>
                                 <td>{{$d->jumlahRfs}}</td>
                                 <td>{{$d->rak->kodeLokasi}}</td>
                                 <td>@currency($d->hargaBeli)</td>
-                                <td>@currency($d->hargaBeli * $d->jumlahSj)</td>
+                                <td>@currency($d->hargaBeli * $d->jumlah)</td>
                                 <td>@currency($d->barang->stok->hargaJual)</td>
                             </tr>
                          @endforeach

@@ -639,6 +639,29 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class="bi bi-printer"></i>
+                        </div>
+                        <div class="menu-title">Laporan</div>
+                    </a>
+                    <ul>
+                        <li > <a href="{{route('admin.report.userAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>User</a>
+                        </li>
+                        <li > <a href="{{route('admin.report.barangAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Stok</a>
+                        </li>
+                        <li > <a href="{{route('admin.report.rakAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Rak/Lokasi</a>
+                        </li>
+                        <li > <a href="{{route('admin.report.stokAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Stok</a>
+                        </li>
+                        <li > <a href="{{route('admin.report.stokLow')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Stok Menipis</a>
+                        </li>
+                        <li > <a href="{{route('admin.report.pembelianAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Pembelian</a>
+                        </li>
+                        <li > <a href="{{route('admin.report.penjualanAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Penjualan</a>
+                        </li>
+                    </ul>
+                </li>
                 {{-- <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class="bi bi-grid"></i>

@@ -18,7 +18,7 @@ class CreateRaksTable extends Migration
             $table->string('kodeLokasi');
             $table->string('gudang');
             $table->string('kodeRak');
-            $table->string('kodeBinbox');
+            // $table->string('kodeBinsbox');
             $table->string('keterangan')->nullable();
             $table->timestamps();
         });

@@ -103,6 +103,8 @@ class ReportController extends Controller
 
         $data->map(function($item){
             $item['span'] = $item->penjualan_detail->count() + 1;
+            // $harga = $item->hargaJual * $item->jumlah;
+            // $item['hargaTotal'] = $harga;
             return $item;
         });
         $now = $this->now;

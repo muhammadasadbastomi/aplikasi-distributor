@@ -51,7 +51,9 @@
         }
 
         .pemko {
-            width: 120px;
+            margin-top: -50px !important;
+            width: 100%;
+            height: 180px;
         }
 
         .logo {
@@ -101,7 +103,7 @@
         <div class="headtext">
             <h2 style="margin:0px;">PT. PULAU BARU JAYA </h2>
             <h3 style="margin:0px;">KECAMATAN BANJARMASIN TIMUR </h3>
-            <p style="margin:0px;">Jl. A.Yani Km 5.5 No.56, Pemurus Luar
+            <p style="margin:0px;">Jl. A.Yani Km 5.5 No.56, Pemurus Luar, Banjarmasin Timur, Kota Banjarmasin, Kalimantan Selatan 70238
             </p>
         </div>
         <br>
@@ -119,7 +121,7 @@
                         <th>Kode Lokasi</th>
                         <th>Gudang</th>
                         <th>Kode Rak</th>
-                        <th>Kode Binbox</th>
+                        {{-- <th>Kode Binbox</th> --}}
                         <th>Keterangan</th>
                         <!-- <th>No</th>
                         <th>No</th>
@@ -134,7 +136,7 @@
                          <td>{{$d->kodeLokasi}}</td>
                          <td>{{$d->gudang}}</td>
                          <td>{{$d->kodeRak}}</td>
-                         <td>{{$d->kodeBinbox}}</td>
+                         {{-- <td>{{$d->kodeBinbox}}</td> --}}
                          <td>{{$d->keterangan}}</td>
                      </tr>
                      @endforeach

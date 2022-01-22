@@ -51,7 +51,9 @@
         }
 
         .pemko {
-            width: 120px;
+            margin-top: -50px !important;
+            width: 100%;
+            height: 180px;
         }
 
         .logo {
@@ -101,7 +103,7 @@
         <div class="headtext">
             <h2 style="margin:0px;">PT. PULAU BARU JAYA </h2>
             <h3 style="margin:0px;">KECAMATAN BANJARMASIN TIMUR </h3>
-            <p style="margin:0px;">Jl. A.Yani Km 5.5 No.56, Pemurus Luar
+            <p style="margin:0px;">Jl. A.Yani Km 5.5 No.56, Pemurus Luar, Banjarmasin Timur, Kota Banjarmasin, Kalimantan Selatan 70238
             </p>
         </div>
         <br>
@@ -120,14 +122,14 @@
                         <th>No Transaksi</th>
                         <th colspan="2">Nama Customer</th>
                         <th rowspan="3">Harga</th>
-                        <th rowspan="3">Diskon</th>
+                        {{-- <th rowspan="3">Diskon</th> --}}
                         <th rowspan="3">Total Harga</th>
                     </tr>
                     <tr>
                         <th>No</th>
-                        <th>Part Number</th>
-                        <th>Part Deskripsi</th>
-                        <th>Qty SJ (PCS)</th>
+                        <th>Kode Item</th>
+                        <th>Deskripsi Item</th>
+                        <th>Qty (PCS)</th>
                     </tr>
                 </thead>
                  <tbody >
@@ -140,22 +142,12 @@
                          @foreach($d->penjualan_detail as $d)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$d->barang->partNumber}}</td>
+                                <td>{{$d->barang->itemCode}}</td>
                                 <td>{{$d->barang->deskripsi}}</td>
                                 <td>{{$d->jumlah}}</td>
                                 <td>@currency($d->hargaJual)</td>
-                                @php 
-                                $diskon = $d->diskon;
-                                $harga = $d->hargaJual * $d->jumlah;
-                                if($diskon){
-                                    $diskonHarga = $harga * $diskon / 100;
-                                    $harga = $harga - $diskonHarga;
-                                }
-                                @endphp
-                                <td>
-                                    {{$diskon}}%
-                                </td>
-                                <td>@currency($harga)</td>
+                               
+                                <td>@currency($d->hargaJual * $d->jumlah)</td>
                                 
                             </tr>
                          @endforeach

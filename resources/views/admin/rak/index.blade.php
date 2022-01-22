@@ -46,7 +46,7 @@
                                    <th>Kode Lokasi</th>
                                    <th>Gudang</th>
                                    <th>Kode Rak</th>
-                                   <th>Kode Binbox</th>
+                                   {{-- <th>Kode Binbox</th> --}}
                                    <th>Keterangan</th>
                                    <th>Aksi</th>
                                    <!-- <th>No</th>
@@ -62,7 +62,7 @@
                                     <td>{{$d->kodeLokasi}}</td>
                                     <td>{{$d->gudang}}</td>
                                     <td>{{$d->kodeRak}}</td>
-                                    <td>{{$d->kodeBinbox}}</td>
+                                    {{-- <td>{{$d->kodeBinbox}}</td> --}}
                                     <td>{{$d->keterangan}}</td>
                                     <td>
                                     <div class="btn-group">

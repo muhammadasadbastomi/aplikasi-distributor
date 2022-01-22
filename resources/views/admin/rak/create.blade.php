@@ -32,10 +32,10 @@
             <label for="formFile" class="form-label">kode Rak</label>
             <input class="form-control form-control-sm mb-3" type="text" name="kodeRak" placeholder="kode Rak" aria-label="default input example" required>
         </div>
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="formFile" class="form-label">kode Binbox</label>
             <input class="form-control form-control-sm mb-3" type="text" name="kodeBinbox" placeholder="kode Binbox" aria-label="default input example" required>
-        </div>
+        </div> --}}
         <div class="mb-3">
             <label for="formFile" class="form-label">Keterangan</label>
             <input class="form-control form-control-sm mb-3" type="text" name="keterangan" placeholder="keterangan" aria-label="default input example" required>

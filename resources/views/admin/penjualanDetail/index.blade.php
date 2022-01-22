@@ -14,7 +14,7 @@
     </div>
     <div class="ms-auto">
         <a href="{{route('admin.penjualanDetail.create',$penjualan->id)}}" class="btn btn-primary px-3 radius-30">Tambah Data</a>
-        <div class="btn-group">
+        {{-- <div class="btn-group">
             <button type="button" class="btn btn-primary px-3 radius-30"><span><i class="glyphicon glyphicon-print"></i></span> Cetak</button>
             <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
                 data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
@@ -25,7 +25,7 @@
                 <a class="dropdown-item" href="javascript:;">Something else here</a>
                 <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 <!--end breadcrumb-->
