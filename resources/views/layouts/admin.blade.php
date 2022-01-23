@@ -648,7 +648,7 @@
                     <ul>
                         <li > <a href="{{route('admin.report.userAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>User</a>
                         </li>
-                        <li > <a href="{{route('admin.report.barangAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Stok</a>
+                        <li > <a href="{{route('admin.report.barangAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Barang</a>
                         </li>
                         <li > <a href="{{route('admin.report.rakAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Rak/Lokasi</a>
                         </li>
