@@ -32,6 +32,7 @@
             <label for="formFile" class="form-label">Password</label>
             <input class="form-control mb-3" type="password" name="password" placeholder="Password" aria-label="default input example" required>
         </div>
+        <input type="hidden" name="role" value="1" required>
         <div class="mb-3">
                 <label for="formFile" class="form-label">Foto</label>
                 <input class="form-control" type="file" name="foto" id="formFile" required>
