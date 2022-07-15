@@ -13,7 +13,7 @@
             </nav>
         </div>
         <div class="ms-auto">
-            <a href="{{route('admin.barang.create')}}" class="btn btn-primary px-3 radius-30">Tambah Data</a>
+            <a href="{{route('admin.retur.create')}}" class="btn btn-primary px-3 radius-30">Tambah Data</a>
             <div class="btn-group">
                 <button type="button" class="btn btn-primary px-3 radius-30"><span><i class="glyphicon glyphicon-print"></i></span> Cetak</button>
                 <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
