@@ -21,7 +21,7 @@
             </button>
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end" px-3 radius-30>
                 <a class="dropdown-item" href="{{route('admin.report.stokAll')}}">Cetak Keseluruhan</a>
-                <a class="dropdown-item" href="{{route('admin.report.stokLow')}}">Cetak Stok Menipis</a>
+                {{-- <a class="dropdown-item" href="{{route('admin.report.stokLow')}}">Cetak Stok Menipis</a> --}}
             </div>
         </div>
     </div>

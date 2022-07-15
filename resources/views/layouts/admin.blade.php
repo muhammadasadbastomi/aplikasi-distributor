@@ -609,6 +609,25 @@
             </div>
             <!--navigation-->
             <ul class="metismenu" id="menu">
+                @if (Auth::user()->role == 0)
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class="bi bi-server"></i>
+                        </div>
+                        <div class="menu-title">Pengiriman</div>
+                    </a>
+                    <ul>
+                        <li class="{{ Request::is('admin/pengiriman/*') ? 'mm-active' : '' }}"> <a href="{{route('admin.pengiriman.index')}}"><i class="bi bi-arrow-right-short"></i>Lihat Data Pengiriman</a>
+                        </li>
+                        {{-- <li class="{{ Request::is('admin/pegawai/*') ? 'mm-active' : '' }}"> <a href="{{route('admin.pegawai.index')}}"><i class="bi bi-arrow-right-short"></i>Pegawai</a>
+                        </li>
+                        <li class="{{ Request::is('admin/barang/*') ? 'mm-active' : '' }}"> <a href="{{route('admin.barang.index')}}"><i class="bi bi-arrow-right-short"></i>Barang</a>
+                        </li>
+                        <li class="{{ Request::is('admin/rak/*') ? 'mm-active' : '' }}"> <a href="{{route('admin.rak.index')}}"><i class="bi bi-arrow-right-short"></i>Lokasi/Rak/Bin</a>
+                        </li> --}}
+                    </ul>
+                </li>
+                @else
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class="bi bi-server"></i>
@@ -617,6 +636,8 @@
                     </a>
                     <ul>
                         <li class="{{ Request::is('admin/user/*') ? 'mm-active' : '' }}"> <a href="{{route('admin.user.index')}}"><i class="bi bi-arrow-right-short"></i>User</a>
+                        </li>
+                        <li class="{{ Request::is('admin/pegawai/*') ? 'mm-active' : '' }}"> <a href="{{route('admin.pegawai.index')}}"><i class="bi bi-arrow-right-short"></i>Pegawai</a>
                         </li>
                         <li class="{{ Request::is('admin/barang/*') ? 'mm-active' : '' }}"> <a href="{{route('admin.barang.index')}}"><i class="bi bi-arrow-right-short"></i>Barang</a>
                         </li>
@@ -637,6 +658,8 @@
                         </li>
                         <li class="{{ Request::is('admin/penjualan/*') ? 'mm-active' : '' }}"> <a href="{{route('admin.penjualan.index')}}"><i class="bi bi-arrow-right-short"></i>Penjualan</a>
                         </li>
+                        <li class="{{ Request::is('admin/retur/*') ? 'mm-active' : '' }}"> <a href="{{route('admin.retur.index')}}"><i class="bi bi-arrow-right-short"></i>Retur</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -646,19 +669,27 @@
                         <div class="menu-title">Laporan</div>
                     </a>
                     <ul>
-                        <li > <a href="{{route('admin.report.userAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>User</a>
-                        </li>
+                        {{-- <li > <a href="{{route('admin.report.userAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>User</a>
+                        </li> --}}
                         <li > <a href="{{route('admin.report.barangAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Barang</a>
                         </li>
-                        <li > <a href="{{route('admin.report.rakAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Rak/Lokasi</a>
-                        </li>
+                        {{-- <li > <a href="{{route('admin.report.rakAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Rak/Lokasi</a>
+                        </li> --}}
                         <li > <a href="{{route('admin.report.stokAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Stok</a>
                         </li>
-                        <li > <a href="{{route('admin.report.stokLow')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Stok Menipis</a>
-                        </li>
+                        {{-- <li > <a href="{{route('admin.report.stokLow')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Stok Menipis</a>
+                        </li> --}}
                         <li > <a href="{{route('admin.report.pembelianAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Pembelian</a>
                         </li>
                         <li > <a href="{{route('admin.report.penjualanAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Penjualan</a>
+                        </li>
+                        <li > <a href="{{route('admin.report.returAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Barang Rusak/Retur</a>
+                        </li>
+                        <li > <a href="{{route('admin.report.pengirimanAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Perjalanan Sopir/Pengiriman</a>
+                        </li>
+                        <li > <a href="{{route('admin.report.targetPenjualan')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Target Penjualan Sales</a>
+                        </li>
+                        <li > <a href="{{route('admin.report.barangLaku')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Barang Paling Laku Terjual</a>
                         </li>
                     </ul>
                 </li>
@@ -976,6 +1007,7 @@
                         <div class="menu-title">Support</div>
                     </a>
                 </li> --}}
+                @endif
             </ul>
             <!--end navigation-->
         </aside>

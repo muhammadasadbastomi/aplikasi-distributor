@@ -78,5 +78,73 @@
         </div>
     </div>
 </div>
+
+<h6 class="mb-0 text-uppercase">Data Pengiriman</h6>
+<hr>
+<div class="card">
+    <div class="card-header text-end">
+        <a href="{{route('admin.pengiriman.create',$penjualan->id)}}" class="btn btn-primary px-3 radius-30">Tambah Data</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <div id="example_wrapper" class="dataTables_wrapper dt-bootstrap5">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="example" class="table table-striped table-bordered dataTable text-center" style="width: 100%;"
+                            role="grid" aria-describedby="example_info">
+                           <thead>
+                               <tr>
+                                   <th>No</th>
+                                   <th>Nama Supir</th>
+                                   <th>Biaya Pengiriman (makan,minum dll)</th>
+                                   <th>Alamat</th>
+                                   <th>Status Verifikasi</th>
+                                   {{-- <th>Kode Binbox</th> --}}
+                                   {{-- <th>Keterangan</th> --}}
+                                   <th>Aksi</th>
+                                   <!-- <th>No</th>
+                                   <th>No</th>
+                                   <th>No</th>
+                                   <th>No</th> -->
+                               </tr>
+                           </thead>
+                            <tbody >
+                                @foreach($penjualan->pengiriman as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->user->nama}}</td>
+                                    <td>@currency($d->biaya)
+                                        </td>
+                                    <td>{{$d->alamat}}</td>
+                                    
+                                    <td>
+                                        @if ($d->status == 0)
+                                            <span class="badge bg-warning">Menunggu verifikasi manager</span>
+                                            @else
+                                            <span class="badge bg-primary">Sudah diverifikasi</span>
+                                                
+                                            @endif
+                                    </td>
+                                    {{-- <td>{{$d->kodeBinbox}}</td> --}}
+                                    {{-- <td>{{$d->keterangan}}</td> --}}
+                                    <td>
+                                    <div class="btn-group">
+                                        <!-- <a href="#" class="btn btn-primary"><i class="bi bi-eye-fill"></i></a> -->
+                                        <a href="{{route('admin.pengiriman.edit',$d->id)}}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                                        <button type="button" class="btn btn-danger destroy" data-bs-toggle="modal" data-route="{{route('admin.pengiriman.destroy',$d->id)}}" data-bs-target="#destroyModal"><i class="bi bi-trash-fill"></i></button>
+                                        {{-- <a href="{{route('admin.pengiriman.destroy',$d->id)}}" class="btn btn-primary"><i class="bi bi-trash-fill"></i></a> --}}
+                                    </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                         
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @include('layouts.modal.destroy')
 @endsection

@@ -19,7 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('foto')->default('ART.png');
-            $table->tinyInteger('role')->default(0);
+            $table->tinyInteger('role')->default(0)->comment('pegawai = 1, supir = 2, manager = 0');
+            $table->string('penjualan')->nullable();
             $table->timestamps();
         });
     }

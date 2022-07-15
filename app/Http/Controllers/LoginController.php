@@ -52,7 +52,7 @@ class LoginController extends Controller
                     return redirect()->route('admin.index')->withSuccess('Berhasil login');
                     break;
                 case 0:
-                    return redirect()->route('user.index')->withSuccess('Berhasil login');
+                    return redirect()->route('admin.index')->withSuccess('Berhasil login');
                     break;
             }
 
@@ -64,7 +64,6 @@ class LoginController extends Controller
 
             return redirect()->route('login')->withErrors('Username atau password salah');
         }
-
     }
 
     public function logout(Request $req)

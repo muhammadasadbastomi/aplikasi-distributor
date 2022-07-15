@@ -38,7 +38,7 @@
                             <div class="col-12 col-xl-4 order-xl-2">
                                 <div class="card-body p-4 p-sm-5">
                                     <h5 class="card-title">Sign In</h5>
-                                    <p class="card-text mb-4">Selamat datang di aplikasi </p>
+                                    <p class="card-text mb-4">Aplikasi Order, Penjualan dan Monitoring Persediaan Barang (Food Products) Pada PT.Pulau Baru Jaya </p>
                                     <form class="form-body" action="{{route('auth.authenticate')}}" method="POST">
                                         @csrf
                                         <div class="row g-3">

@@ -7,18 +7,18 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class PegawaiController extends Controller
 {
     public function index()
     {
-        $data = User::all();
+        $data = User::whereIn('role', [2, 0])->get();
 
-        return view('admin.user.index', compact('data'));
+        return view('admin.pegawai.index', compact('data'));
     }
 
     public function create()
     {
-        return view('admin.user.create');
+        return view('admin.pegawai.create');
     }
 
     public function store(Request $req)
@@ -34,12 +34,12 @@ class UserController extends Controller
         }
         $data = User::create($input);
 
-        return redirect()->route('admin.user.index')->withSuccess('Data berhasil disimpan');
+        return redirect()->route('admin.pegawai.index')->withSuccess('Data berhasil disimpan');
     }
 
     public function edit(User $user)
     {
-        return view('admin.user.edit', compact('user'));
+        return view('admin.pegawai.edit', compact('user'));
     }
 
     public function update(User $user, Request $req)
@@ -57,7 +57,7 @@ class UserController extends Controller
         }
 
         $user->update($input);
-        return redirect()->route('admin.user.index')->withSuccess('Data berhasil diubah');
+        return redirect()->route('admin.pegawai.index')->withSuccess('Data berhasil diubah');
     }
 
     public function destroy(User $user)

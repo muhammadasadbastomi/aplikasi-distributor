@@ -20,7 +20,7 @@
                 data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
             </button>
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end" px-3 radius-30> 
-                <a class="dropdown-item" href="{{route('admin.report.barangAll')}}">Cetak Keseluruhan</a>
+                <a class="dropdown-item" href="{{route('admin.report.barangAll')}}" target="_blank">Cetak Keseluruhan</a>
                 
                 {{-- <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a> --}}
             </div>
@@ -48,6 +48,7 @@
                                    <th>Kode Group Sales</th>
                                    <th>HET</th>
                                    <th>Harga Pokok</th>
+                                   <th>Target Penjualan</th>
                                    <th>Aksi</th>
                                </tr>
                            </thead>
@@ -62,6 +63,7 @@
                                     <td>{{$d->kodeGroupSales}}</td>
                                     <td>{{$d->HET}}</td>
                                     <td>{{$d->hargaPokok}}</td>
+                                    <td>{{$d->target}}</td>
                                     <td>
                                     <div class="btn-group">
                                         <!-- <a href="#" class="btn btn-primary"><i class="bi bi-eye-fill"></i></a> -->
