@@ -22,6 +22,7 @@ class CreateBarangsTable extends Migration
             $table->string('kodeGroupSales');
             $table->string('HET');
             $table->string('hargaPokok');
+            $table->string('target');
             $table->timestamps();
         });
     }
