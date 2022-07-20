@@ -145,6 +145,11 @@ class ReportController extends Controller
 
         $data->map(function ($item) {
             $item['span'] = $item->pembelian_detail->count() + 1;
+            $item->pembelian_detail->map(function ($i) {
+                $harga = $i->hargaBeli * $i->jumlah;
+                $i['hargaTotal'] = $harga;
+            });
+            $item['total'] = $item->pembelian_detail->sum('hargaTotal');
             return $item;
         });
         $now = $this->now;
@@ -162,8 +167,13 @@ class ReportController extends Controller
 
         $data->map(function ($item) {
             $item['span'] = $item->penjualan_detail->count() + 1;
-            // $harga = $item->hargaJual * $item->jumlah;
-            // $item['hargaTotal'] = $harga;
+            $item->penjualan_detail->map(function ($i) {
+                // dd($i);
+                $harga = $i->hargaJual * $i->jumlah;
+                $i['hargaTotal'] = $harga;
+                return $i;
+            });
+            $item['total'] =  $item->penjualan_detail->sum('hargaTotal');
             return $item;
         });
         $now = $this->now;

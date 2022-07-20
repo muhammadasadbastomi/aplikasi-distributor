@@ -124,8 +124,8 @@
                         <th rowspan="2">Jumlah </th>
                         <th rowspan="2">Rak</th>
                         <th rowspan="2">Harga Beli/Pcs</th>
-                        <th rowspan="2">Total Harga Netto</th>
                         <th rowspan="2">Harga Jual/Pcs</th>
+                        <th rowspan="2">Total Harga Netto</th>
                     </tr>
                     <tr>
                         <th>No</th>
@@ -152,12 +152,16 @@
                                 <td>{{$d->jumlahRfs}}</td>
                                 <td>{{$d->rak->kodeLokasi}}</td>
                                 <td>@currency($d->hargaBeli)</td>
-                                <td>@currency($d->hargaBeli * $d->jumlah)</td>
                                 <td>@currency($d->barang->stok->hargaJual)</td>
+                                <td>@currency($d->hargaTotal)</td>
                             </tr>
                          @endforeach
                      </tr>
                      @endforeach
+                     <tr>
+                        <td colspan="9"><b>TOTAL KESELURUHAN</b></td>
+                        <td colspan="1"><b>@currency($data->sum('total'))</b></td>
+                     </tr>
                  </tbody>
             </table>
             <br>

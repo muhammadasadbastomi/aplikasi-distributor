@@ -147,13 +147,18 @@
                                 <td>{{$d->jumlah}}</td>
                                 <td>@currency($d->hargaJual)</td>
                                
-                                <td>@currency($d->hargaJual * $d->jumlah)</td>
+                                <td>@currency($d->hargaTotal)</td>
                                 
                             </tr>
                          @endforeach
                      </tr>
                      @endforeach
+                     <tr>
+                        <td colspan="9"><b>TOTAL KESELURUHAN</b></td>
+                        <td colspan="2"><b>@currency($data->sum('total'))</b></td>
+                     </tr>
                  </tbody>
+                 
             </table>
             <br>
             <br>
