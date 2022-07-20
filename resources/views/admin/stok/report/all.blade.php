@@ -98,7 +98,7 @@
 <body>
     <div class="header">
         <div class="logo">
-            <img class="pemko" src="ART.png">
+            <img class="pemko" src="{{ asset('ART.png') }}">
         </div>
         <div class="headtext">
             <h2 style="margin:0px;">PT. PULAU BARU JAYA </h2>
@@ -141,7 +141,7 @@
             </table>
             <br>
             <br>
-            <div class="ttd">
+           <div class="ttd">
                 <p style="margin:0px"> Banjarmasin, {{$now}}</p>
                 <h6 style="margin:0px">Mengetahui</h6>
                 <h5 style="margin:0px">Manager</h5>
@@ -150,8 +150,23 @@
                 <h5 style="text-decoration:underline; margin:0px">{{$ttdName}}</h5>
                 {{-- <h5 style="margin:0px">NIP. 19710830 199101 1 002</h5> --}}
             </div>
+            <br>
+            <br>
+            <div class="text-right">
+            <button id="btnPrint" class="btn btn-lg" style="width: 150px; height:40px; background-color:rgb(147, 147, 181); color:white;" onclick="PrintWindow()">Cetak</button>
+            {{-- <input id="btnPrint" type="button" value="Print" onclick="PrintWindow()" /> --}}
+        </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function PrintWindow() {
+            var btnPrint = document.getElementById("btnPrint");
+            btnPrint.style.visibility = 'hidden';
+            window.print()
+            btnPrint.style.visibility = 'visible';
+        }
+    </script>
+           
 </body>
 
 </html>

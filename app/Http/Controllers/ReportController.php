@@ -33,10 +33,11 @@ class ReportController extends Controller
         $data = User::all();
         $now = $this->now;
         $ttdName = $this->ttdName;
-        $pdf = PDF::loadView('admin.user.report.userAll', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.user.report.userAll', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf = PDF::loadView('admin.user.report.userAll', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Semua User.pdf');
+        // return $pdf->stream('Laporan Semua User.pdf');
     }
 
     public function barangAll()
@@ -44,10 +45,11 @@ class ReportController extends Controller
         $data = Barang::all();
         $now = $this->now;
         $ttdName = $this->ttdName;
-        $pdf = PDF::loadView('admin.barang.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.barang.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf = PDF::loadView('admin.barang.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Semua Barang.pdf');
+        // return $pdf->stream('Laporan Semua Barang.pdf');
     }
 
     public function rakAll()
@@ -55,10 +57,11 @@ class ReportController extends Controller
         $data = Rak::all();
         $now = $this->now;
         $ttdName = $this->ttdName;
-        $pdf = PDF::loadView('admin.rak.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.rak.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf = PDF::loadView('admin.rak.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Semua Rak.pdf');
+        // return $pdf->stream('Laporan Semua Rak.pdf');
     }
 
     public function returAll()
@@ -66,10 +69,11 @@ class ReportController extends Controller
         $data = Retur::all();
         $now = $this->now;
         $ttdName = $this->ttdName;
-        $pdf = PDF::loadView('admin.retur.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.retur.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf = PDF::loadView('admin.retur.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Semua Retur.pdf');
+        // return $pdf->stream('Laporan Semua Retur.pdf');
     }
 
     public function pengirimanAll()
@@ -77,10 +81,11 @@ class ReportController extends Controller
         $data = Pengiriman::all();
         $now = $this->now;
         $ttdName = $this->ttdName;
-        $pdf = PDF::loadView('admin.pengiriman.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.pengiriman.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf = PDF::loadView('admin.pengiriman.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Semua Retur.pdf');
+        // return $pdf->stream('Laporan Semua Retur.pdf');
     }
 
     public function stokAll()
@@ -88,10 +93,11 @@ class ReportController extends Controller
         $data = Stok::all();
         $now = $this->now;
         $ttdName = $this->ttdName;
-        $pdf = PDF::loadView('admin.stok.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.stok.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $apdf = PDF::loadView('admin.stok.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Semua Stok.pdf');
+        // return $pdf->stream('Laporan Semua Stok.pdf');
     }
 
     public function targetPenjualan()
@@ -99,10 +105,11 @@ class ReportController extends Controller
         $data = PenjualanSales::all();
         $now = $this->now;
         $ttdName = $this->ttdName;
-        $pdf = PDF::loadView('admin.penjualan.report.target', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.penjualan.report.target', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf = PDF::loadView('admin.penjualan.report.target', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Semua Target Penjualan.pdf');
+        // return $pdf->stream('Laporan Semua Target Penjualan.pdf');
     }
 
     public function barangLaku()
@@ -112,10 +119,11 @@ class ReportController extends Controller
         // dd($data);
         $now = $this->now;
         $ttdName = $this->ttdName;
-        $pdf = PDF::loadView('admin.penjualan.report.barangLaku', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.penjualan.report.barangLaku', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf = PDF::loadView('admin.penjualan.report.barangLaku', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Barang Paling Laku.pdf');
+        // return $pdf->stream('Laporan Barang Paling Laku.pdf');
     }
 
     public function stokLow()
@@ -124,10 +132,11 @@ class ReportController extends Controller
         $now = $this->now;
         $ttdName = $this->ttdName;
 
-        $pdf = PDF::loadView('admin.stok.report.low', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.stok.report.low', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf = PDF::loadView('admin.stok.report.low', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Stok Menipis.pdf');
+        // return $pdf->stream('Laporan Stok Menipis.pdf');
     }
 
     public function pembelianAll()
@@ -140,10 +149,11 @@ class ReportController extends Controller
         });
         $now = $this->now;
         $ttdName = $this->ttdName;
-        $pdf = PDF::loadView('admin.pembelian.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.pembelian.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf = PDF::loadView('admin.pembelian.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Semua Pembelian.pdf');
+        // return $pdf->stream('Laporan Semua Pembelian.pdf');
     }
 
     public function penjualanAll()
@@ -158,10 +168,11 @@ class ReportController extends Controller
         });
         $now = $this->now;
         $ttdName = $this->ttdName;
-        $pdf = PDF::loadView('admin.penjualan.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.penjualan.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf = PDF::loadView('admin.penjualan.report.all', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Semua Penjualan.pdf');
+        // return $pdf->stream('Laporan Semua Penjualan.pdf');
     }
 
 
@@ -171,10 +182,11 @@ class ReportController extends Controller
         $data = Kegiatan::whereYear('tanggal_kegiatan', '=', $request->year)->get();
         $now = $this->now;
         $year = $request->year;
-        $pdf = PDF::loadView('admin.report.kegiatanYear', ['data' => $data, 'now' => $now, 'year' => $year]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.kegiatanYear', ['data' => $data, 'now' => $now, 'year' => $year]);
+        // $pdf = PDF::loadView('admin.report.kegiatanYear', ['data' => $data, 'now' => $now, 'year' => $year]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Kegiatan Tahunan.pdf');
+        // return $pdf->stream('Laporan Kegiatan Tahunan.pdf');
     }
 
     public function kegiatanMonth(Request $request)
@@ -225,10 +237,11 @@ class ReportController extends Controller
                 break;
         }
         $month = strToUpper($month);
-        $pdf = PDF::loadView('admin.report.kegiatanMonth', ['data' => $data, 'now' => $now, 'year' => $year, 'month' => $month]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.kegiatanMonth', ['data' => $data, 'now' => $now, 'year' => $year, 'month' => $month]);
+        // $pdf = PDF::loadView('admin.report.kegiatanMonth', ['data' => $data, 'now' => $now, 'year' => $year, 'month' => $month]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Kegiatan Bulanan.pdf');
+        // return $pdf->stream('Laporan Kegiatan Bulanan.pdf');
     }
 
     public function konflikIndex()
@@ -239,10 +252,11 @@ class ReportController extends Controller
     {
         $data = Konflik::all();
         $now = $this->now;
-        $pdf = PDF::loadView('admin.report.konflikAll', ['data' => $data, 'now' => $now]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.konflikAll', ['data' => $data, 'now' => $now]);
+        // $pdf = PDF::loadView('admin.report.konflikAll', ['data' => $data, 'now' => $now]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Semua Konflik.pdf');
+        // return $pdf->stream('Laporan Semua Konflik.pdf');
     }
 
     public function konflikYear(Request $request)
@@ -250,10 +264,11 @@ class ReportController extends Controller
         $data = Konflik::whereYear('tanggal_konflik', '=', $request->year)->get();
         $now = $this->now;
         $year = $request->year;
-        $pdf = PDF::loadView('admin.report.konflikYear', ['data' => $data, 'now' => $now, 'year' => $year]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.konflikYear', ['data' => $data, 'now' => $now, 'year' => $year]);
+        // $pdf = PDF::loadView('admin.report.konflikYear', ['data' => $data, 'now' => $now, 'year' => $year]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Konflik Tahun.pdf');
+        // return $pdf->stream('Laporan Konflik Tahun.pdf');
     }
 
     public function konflikMonth(Request $request)
@@ -304,10 +319,11 @@ class ReportController extends Controller
                 break;
         }
         $month = strToUpper($month);
-        $pdf = PDF::loadView('admin.report.konflikMonth', ['data' => $data, 'now' => $now, 'year' => $year, 'month' => $month]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.konflikMonth', ['data' => $data, 'now' => $now, 'year' => $year, 'month' => $month]);
+        // $pdf = PDF::loadView('admin.report.konflikMonth', ['data' => $data, 'now' => $now, 'year' => $year, 'month' => $month]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Konflik Bulanan.pdf');
+        // return $pdf->stream('Laporan Konflik Bulanan.pdf');
     }
 
     public function gangguanIndex()
@@ -318,10 +334,11 @@ class ReportController extends Controller
     {
         $data = Gangguan::all();
         $now = $this->now;
-        $pdf = PDF::loadView('admin.report.gangguanAll', ['data' => $data, 'now' => $now]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.gangguanAll', ['data' => $data, 'now' => $now]);
+        // $pdf = PDF::loadView('admin.report.gangguanAll', ['data' => $data, 'now' => $now]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Semua Gangguan.pdf');
+        // return $pdf->stream('Laporan Semua Gangguan.pdf');
     }
 
     public function gangguanYear(Request $request)
@@ -329,10 +346,11 @@ class ReportController extends Controller
         $data = Gangguan::whereYear('tanggal_gangguan', '=', $request->year)->get();
         $now = $this->now;
         $year = $request->year;
-        $pdf = PDF::loadView('admin.report.gangguanYear', ['data' => $data, 'now' => $now, 'year' => $year]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.gangguanYear', ['data' => $data, 'now' => $now, 'year' => $year]);
+        // $pdf = PDF::loadView('admin.report.gangguanYear', ['data' => $data, 'now' => $now, 'year' => $year]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Gangguan Tahun.pdf');
+        // return $pdf->stream('Laporan Gangguan Tahun.pdf');
     }
 
     public function gangguanMonth(Request $request)
@@ -383,10 +401,11 @@ class ReportController extends Controller
                 break;
         }
         $month = strToUpper($month);
-        $pdf = PDF::loadView('admin.report.gangguanMonth', ['data' => $data, 'now' => $now, 'year' => $year, 'month' => $month]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.gangguanMonth', ['data' => $data, 'now' => $now, 'year' => $year, 'month' => $month]);
+        // $pdf = PDF::loadView('admin.report.gangguanMonth', ['data' => $data, 'now' => $now, 'year' => $year, 'month' => $month]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Gangguan Bulanan.pdf');
+        // return $pdf->stream('Laporan Gangguan Bulanan.pdf');
     }
     public function kriminalIndex()
     {
@@ -396,10 +415,11 @@ class ReportController extends Controller
     {
         $data = Kriminal::all();
         $now = $this->now;
-        $pdf = PDF::loadView('admin.report.kriminalAll', ['data' => $data, 'now' => $now]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.kriminalAll', ['data' => $data, 'now' => $now]);
+        // $pdf = PDF::loadView('admin.report.kriminalAll', ['data' => $data, 'now' => $now]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Semua Kriminal.pdf');
+        // return $pdf->stream('Laporan Semua Kriminal.pdf');
     }
 
     public function kriminalYear(Request $request)
@@ -407,10 +427,11 @@ class ReportController extends Controller
         $data = Kriminal::whereYear('tanggal_kejadian', '=', $request->year)->get();
         $now = $this->now;
         $year = $request->year;
-        $pdf = PDF::loadView('admin.report.kriminalYear', ['data' => $data, 'now' => $now, 'year' => $year]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.kriminalYear', ['data' => $data, 'now' => $now, 'year' => $year]);
+        // $pdf = PDF::loadView('admin.report.kriminalYear', ['data' => $data, 'now' => $now, 'year' => $year]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Kriminal Tahun.pdf');
+        // return $pdf->stream('Laporan Kriminal Tahun.pdf');
     }
 
     public function kriminalMonth(Request $request)
@@ -461,10 +482,11 @@ class ReportController extends Controller
                 break;
         }
         $month = strToUpper($month);
-        $pdf = PDF::loadView('admin.report.kriminalMonth', ['data' => $data, 'now' => $now, 'year' => $year, 'month' => $month]);
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.kriminalMonth', ['data' => $data, 'now' => $now, 'year' => $year, 'month' => $month]);
+        // $pdf = PDF::loadView('admin.report.kriminalMonth', ['data' => $data, 'now' => $now, 'year' => $year, 'month' => $month]);
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Kriminal Bulanan.pdf');
+        // return $pdf->stream('Laporan Kriminal Bulanan.pdf');
     }
 
     public function grafik()
@@ -475,11 +497,11 @@ class ReportController extends Controller
         $gangguan = Gangguan::all()->count();
         $kriminal = Kriminal::all()->count();
         return view('admin.report.grafik', compact('now', 'konflik', 'gangguan', 'kriminal'));
-        // $pdf = PDF::loadView('admin.report.grafik', compact('now', 'konflik', 'gangguan', 'kriminal'));
-        // $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.grafik', compact('now', 'konflik', 'gangguan', 'kriminal'));
+        $pdf = PDF::loadView('admin.report.grafik', compact('now', 'konflik', 'gangguan', 'kriminal'));
+        $pdf->setPaper('a4', 'landscape');
 
-        // return $pdf->stream('Laporan Grafik Kejadian.pdf');
-
+        return $pdf->stream('Laporan Grafik Kejadian.pdf');
     }
 
     public function petugas()
@@ -487,10 +509,11 @@ class ReportController extends Controller
         $now = $this->now;
         $data = Petugas::all();
         // return view('admin.report.grafik', compact('now', 'konflik', 'gangguan', 'kriminal'));
-        $pdf = PDF::loadView('admin.report.petugas', compact('now', 'data'));
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.petugas', compact('now', 'data'));
+        // $pdf = PDF::loadView('admin.report.petugas', compact('now', 'data'));
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Data Petugas.pdf');
+        // return $pdf->stream('Laporan Data Petugas.pdf');
     }
 
     public function camat()
@@ -498,10 +521,11 @@ class ReportController extends Controller
         $now = $this->now;
         $data = Camat::all();
         // return view('admin.report.grafik', compact('now', 'konflik', 'gangguan', 'kriminal'));
-        $pdf = PDF::loadView('admin.report.camat', compact('now', 'data'));
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.camat', compact('now', 'data'));
+        // $pdf = PDF::loadView('admin.report.camat', compact('now', 'data'));
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Data Camat.pdf');
+        // return $pdf->stream('Laporan Data Camat.pdf');
     }
 
     public function kasi()
@@ -509,10 +533,11 @@ class ReportController extends Controller
         $now = $this->now;
         $data = Kasi::all();
         // return view('admin.report.grafik', compact('now', 'konflik', 'gangguan', 'kriminal'));
-        $pdf = PDF::loadView('admin.report.kasi', compact('now', 'data'));
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.kasi', compact('now', 'data'));
+        // $pdf = PDF::loadView('admin.report.kasi', compact('now', 'data'));
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Data Kasi.pdf');
+        // return $pdf->stream('Laporan Data Kasi.pdf');
     }
 
     public function jadwal()
@@ -524,10 +549,11 @@ class ReportController extends Controller
         $Kamis = Jadwal::whereHari('Kamis')->get();
         $Jumat = Jadwal::whereHari('Jumat')->get();
         $data = Jadwal::all();
-        $pdf = PDF::loadView('admin.report.jadwal-petugas', compact('now', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'data'));
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.jadwal-petugas', compact('now', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'data'));
+        // $pdf = PDF::loadView('admin.report.jadwal-petugas', compact('now', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'data'));
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Data Jadwal Petugas.pdf');
+        // return $pdf->stream('Laporan Data Jadwal Petugas.pdf');
     }
 
     public function suratIndex()
@@ -539,10 +565,11 @@ class ReportController extends Controller
     {
         $now = $this->now;
         $data = Petugas::findOrFail($request->petugas_id);
-        $pdf = PDF::loadView('admin.report.surat-tugas', compact('now', 'data'));
-        $pdf->setPaper('a4', 'potrait');
+        return view('admin.report.surat-tugas', compact('now', 'data'));
+        // $pdf = PDF::loadView('admin.report.surat-tugas', compact('now', 'data'));
+        // $pdf->setPaper('a4', 'potrait');
 
-        return $pdf->stream('Laporan Surat Petugas.pdf');
+        // return $pdf->stream('Laporan Surat Petugas.pdf');
     }
 
     public function pegawai()
@@ -550,46 +577,51 @@ class ReportController extends Controller
         $now = $this->now;
         $data = Pegawai::all();
         // return view('admin.report.grafik', compact('now', 'konflik', 'gangguan', 'kriminal'));
-        $pdf = PDF::loadView('admin.report.pegawai', compact('now', 'data'));
-        $pdf->setPaper('a4', 'landscape');
+        return view('admin.report.pegawai', compact('now', 'data'));
+        // $pdf = PDF::loadView('admin.report.pegawai', compact('now', 'data'));
+        // $pdf->setPaper('a4', 'landscape');
 
-        return $pdf->stream('Laporan Data Pegawai.pdf');
+        // return $pdf->stream('Laporan Data Pegawai.pdf');
     }
 
     public function baKegiatan($id)
     {
         $now = $this->now;
         $data = Kegiatan::findOrFail($id);
-        $pdf = PDF::loadView('admin.report.BA-kegiatan', compact('now', 'data'));
-        $pdf->setPaper('a4', 'potrait');
+        return view('admin.report.BA-kegiatan', compact('now', 'data'));
+        // $pdf = PDF::loadView('admin.report.BA-kegiatan', compact('now', 'data'));
+        // $pdf->setPaper('a4', 'potrait');
 
-        return $pdf->stream('Berita acara kegiatan.pdf');
+        // return $pdf->stream('Berita acara kegiatan.pdf');
     }
     public function baGangguan($id)
     {
         $now = $this->now;
         $data = Gangguan::findOrFail($id);
-        $pdf = PDF::loadView('admin.report.BA-gangguan', compact('now', 'data'));
-        $pdf->setPaper('a4', 'potrait');
+        return view('admin.report.BA-gangguan', compact('now', 'data'));
+        // $pdf = PDF::loadView('admin.report.BA-gangguan', compact('now', 'data'));
+        // $pdf->setPaper('a4', 'potrait');
 
-        return $pdf->stream('Berita acara gangguan.pdf');
+        // return $pdf->stream('Berita acara gangguan.pdf');
     }
     public function baKriminal($id)
     {
         $now = $this->now;
         $data = Kriminal::findOrFail($id);
-        $pdf = PDF::loadView('admin.report.BA-kriminal', compact('now', 'data'));
-        $pdf->setPaper('a4', 'potrait');
+        return view('admin.report.BA-kriminal', compact('now', 'data'));
+        // $pdf = PDF::loadView('admin.report.BA-kriminal', compact('now', 'data'));
+        // $pdf->setPaper('a4', 'potrait');
 
-        return $pdf->stream('Berita acara kriminal.pdf');
+        // return $pdf->stream('Berita acara kriminal.pdf');
     }
     public function baKonflik($id)
     {
         $now = $this->now;
         $data = Konflik::findOrFail($id);
-        $pdf = PDF::loadView('admin.report.BA-konflik', compact('now', 'data'));
-        $pdf->setPaper('a4', 'potrait');
+        return view('admin.report.BA-konflik', compact('now', 'data'));
+        // $pdf = PDF::loadView('admin.report.BA-konflik', compact('now', 'data'));
+        // $pdf->setPaper('a4', 'potrait');
 
-        return $pdf->stream('Berita acara konflik.pdf');
+        // return $pdf->stream('Berita acara konflik.pdf');
     }
 }
