@@ -111,13 +111,8 @@
     <div class="container">
         <hr style="margin-top:1px;">
         <div class="isi">
-            <h2 style="text-align:center;">LAPORAN DATA BARANG RUSAK/RETUR
-                @isset($month)
-                {{ $month }}
-            @endisset
-            @isset($year)
-                {{ $year }}
-            @endisset
+            <h2 style="text-align:center;">LAPORAN DATA BARANG RUSAK/RETUR {{ strToUpper(carbon\carbon::parse($tanggal)->translatedFormat('d F Y')) }}
+                
             </h2>
             <br>
             <table id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" role="grid"

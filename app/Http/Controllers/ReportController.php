@@ -257,6 +257,57 @@ class ReportController extends Controller
         // return $pdf->stream('Laporan Kendaraan Sekda Filter.pdf');
     }
 
+    public function returDate(Request $req)
+    {
+        $year = $req->year;
+        $month = $req->month;
+        if (!$month) {
+            $data = Retur::whereYear('created_at', $year)->get();
+            $month = NULL;
+        } else {
+            $data = Retur::whereMonth('created_at', $month)->whereYear('created_at', $year)->get();
+            $month = strtoupper(Carbon::parse('01-' . $month . '-' . $year)->translatedFormat('F'));
+            // dd($month);
+        }
+
+
+
+
+
+        $now = $this->now;
+        $ttdName = $this->ttdName;
+        return view('admin.retur.report.all', ['data' => $data, 'year' => $year, 'month' => $month, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf = PDF::loadView('admin.kendaraanSekda.report.all', ['data' => $data, 'year' => $year, 'month' => $month, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
+
+        // return $pdf->stream('Laporan Kendaraan Sekda Filter.pdf');
+    }
+
+    public function returDay(Request $req)
+    {
+        $tanggal = $req->tanggal;
+        $data = Retur::whereDate('created_at', $tanggal)->get();
+        // $month = $req->month;
+        // if (!$month) {
+        //     $month = NULL;
+        // } else {
+        //     $data = Retur::whereMonth('created_at', $month)->whereYear('created_at', $year)->get();
+        //     $month = strtoupper(Carbon::parse('01-' . $month . '-' . $year)->translatedFormat('F'));
+        //     // dd($month);
+        // }
+
+
+
+
+        $now = $this->now;
+        $ttdName = $this->ttdName;
+        return view('admin.retur.report.one', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName, 'tanggal' => $tanggal]);
+        // $pdf = PDF::loadView('admin.kendaraanSekda.report.all', ['data' => $data, 'year' => $year, 'month' => $month, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
+
+        // return $pdf->stream('Laporan Kendaraan Sekda Filter.pdf');
+    }
+
     public function pembelianDate(Request $req)
     {
         $year = $req->year;

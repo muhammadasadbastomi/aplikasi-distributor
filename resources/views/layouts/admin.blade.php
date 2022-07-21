@@ -714,7 +714,20 @@
                         
                         {{-- <li > <a href="{{route('admin.report.penjualanAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Penjualan</a>
                         </li> --}}
-                        <li > <a href="{{route('admin.report.returAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Barang Rusak/Retur</a>
+                        {{-- <li > <a href="{{route('admin.report.returAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Barang Rusak/Retur</a>
+                        </li> --}}
+                        <li> <a class="has-arrow" href="javascript:;"><i class="bi bi-arrow-right-short"></i>Barang Rusak/Retur</a>
+                            <ul class="mm-collapse">
+                                <li> <a  href="#" data-bs-toggle="modal" data-route="{{ route('admin.report.returDay') }}"
+                                    data-bs-target="#harianModal" class="dropdown-item cetakHarian"></i>Filter Harian</a>
+                                </li>
+                            <li> <a  href="#" data-bs-toggle="modal" data-route="{{ route('admin.report.returDate') }}"
+                                data-bs-target="#bulanModal" class="dropdown-item cetakBulan"></i>Filter Bulan Tahun</a>
+                            </li>
+                            
+                            <li> <a href="{{route('admin.report.returAll')}}" target="_blank"></i>Keseluruhan</a>
+                            </li>
+                        </ul>
                         </li>
                         <li > <a href="{{route('admin.report.pengirimanAll')}}" target="_blank"><i class="bi bi-arrow-right-short"></i>Perjalanan Sopir/Pengiriman</a>
                         </li>
