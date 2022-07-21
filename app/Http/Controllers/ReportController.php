@@ -186,6 +186,142 @@ class ReportController extends Controller
     }
 
 
+    public function penjualanDate(Request $req)
+    {
+        $year = $req->year;
+        $month = $req->month;
+        if (!$month) {
+            $data = Penjualan::whereYear('created_at', $year)->get();
+            $month = NULL;
+        } else {
+            $data = Penjualan::whereMonth('created_at', $month)->whereYear('created_at', $year)->get();
+            $month = strtoupper(Carbon::parse('01-' . $month . '-' . $year)->translatedFormat('F'));
+            // dd($month);
+        }
+
+        $data->map(function ($item) {
+            $item['span'] = $item->penjualan_detail->count() + 1;
+            $item->penjualan_detail->map(function ($i) {
+                // dd($i);
+                $harga = $i->hargaJual * $i->jumlah;
+                $i['hargaTotal'] = $harga;
+                return $i;
+            });
+            $item['total'] =  $item->penjualan_detail->sum('hargaTotal');
+            return $item;
+        });
+
+
+
+        $now = $this->now;
+        $ttdName = $this->ttdName;
+        return view('admin.penjualan.report.all', ['data' => $data, 'year' => $year, 'month' => $month, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf = PDF::loadView('admin.kendaraanSekda.report.all', ['data' => $data, 'year' => $year, 'month' => $month, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
+
+        // return $pdf->stream('Laporan Kendaraan Sekda Filter.pdf');
+    }
+
+    public function penjualanDay(Request $req)
+    {
+        $tanggal = $req->tanggal;
+        $data = Penjualan::whereDate('tanggalPenjualan', $tanggal)->get();
+        // $month = $req->month;
+        // if (!$month) {
+        //     $month = NULL;
+        // } else {
+        //     $data = Penjualan::whereMonth('created_at', $month)->whereYear('created_at', $year)->get();
+        //     $month = strtoupper(Carbon::parse('01-' . $month . '-' . $year)->translatedFormat('F'));
+        //     // dd($month);
+        // }
+        $data->map(function ($item) {
+            $item['span'] = $item->penjualan_detail->count() + 1;
+            $item->penjualan_detail->map(function ($i) {
+                // dd($i);
+                $harga = $i->hargaJual * $i->jumlah;
+                $i['hargaTotal'] = $harga;
+                return $i;
+            });
+            $item['total'] =  $item->penjualan_detail->sum('hargaTotal');
+            return $item;
+        });
+
+
+
+        $now = $this->now;
+        $ttdName = $this->ttdName;
+        return view('admin.penjualan.report.one', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName, 'tanggal' => $tanggal]);
+        // $pdf = PDF::loadView('admin.kendaraanSekda.report.all', ['data' => $data, 'year' => $year, 'month' => $month, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
+
+        // return $pdf->stream('Laporan Kendaraan Sekda Filter.pdf');
+    }
+
+    public function pembelianDate(Request $req)
+    {
+        $year = $req->year;
+        $month = $req->month;
+        if (!$month) {
+            $data = Pembelian::whereYear('created_at', $year)->get();
+            $month = NULL;
+        } else {
+            $data = Pembelian::whereMonth('created_at', $month)->whereYear('created_at', $year)->get();
+            $month = strtoupper(Carbon::parse('01-' . $month . '-' . $year)->translatedFormat('F'));
+            // dd($month);
+        }
+        $data->map(function ($item) {
+            $item['span'] = $item->pembelian_detail->count() + 1;
+            $item->pembelian_detail->map(function ($i) {
+                $harga = $i->hargaBeli * $i->jumlah;
+                $i['hargaTotal'] = $harga;
+            });
+            $item['total'] = $item->pembelian_detail->sum('hargaTotal');
+            return $item;
+        });
+
+
+
+        $now = $this->now;
+        $ttdName = $this->ttdName;
+        return view('admin.pembelian.report.all', ['data' => $data, 'year' => $year, 'month' => $month, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf = PDF::loadView('admin.kendaraanSekda.report.all', ['data' => $data, 'year' => $year, 'month' => $month, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
+
+        // return $pdf->stream('Laporan Kendaraan Sekda Filter.pdf');
+    }
+
+    public function pembelianDay(Request $req)
+    {
+        $tanggal = $req->tanggal;
+        $data = Pembelian::whereDate('tanggalPembelian', $tanggal)->get();
+        $data->map(function ($item) {
+            $item['span'] = $item->pembelian_detail->count() + 1;
+            $item->pembelian_detail->map(function ($i) {
+                $harga = $i->hargaBeli * $i->jumlah;
+                $i['hargaTotal'] = $harga;
+            });
+            $item['total'] = $item->pembelian_detail->sum('hargaTotal');
+            return $item;
+        });
+        // $month = $req->month;
+        // if (!$month) {
+        //     $month = NULL;
+        // } else {
+        //     $data = Pembelian::whereMonth('created_at', $month)->whereYear('created_at', $year)->get();
+        //     $month = strtoupper(Carbon::parse('01-' . $month . '-' . $year)->translatedFormat('F'));
+        //     // dd($month);
+        // }
+
+
+
+        $now = $this->now;
+        $ttdName = $this->ttdName;
+        return view('admin.pembelian.report.one', ['data' => $data, 'now' => $now, 'ttdName' => $ttdName, 'tanggal' => $tanggal]);
+        // $pdf = PDF::loadView('admin.kendaraanSekda.report.all', ['data' => $data, 'year' => $year, 'month' => $month, 'now' => $now, 'ttdName' => $ttdName]);
+        // $pdf->setPaper('a4', 'landscape');
+
+        // return $pdf->stream('Laporan Kendaraan Sekda Filter.pdf');
+    }
 
     public function kegiatanYear(Request $request)
     {

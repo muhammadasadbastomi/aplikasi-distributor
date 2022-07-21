@@ -15,7 +15,7 @@
                             <div class="row">
                                 <div class="col">
                                 <label for="formFile" class="form-label">Pilih Bulan</label>
-                                <select name="month" id="month" class="form-select form-select-sm mb-3" required>
+                                <select name="month" id="month" class="form-select form-select-sm mb-3" >
                                     <option value="">Pilih Bulan</option>
                                     <option value="01">Januari</option>
                                     <option value="02">Februari</option>
@@ -36,18 +36,18 @@
                                     <input type="text" name="year" class="form-control form-control-sm mb-3" id="input1" required>
                                 </div>    
                             </div>
-                            <div class="text-end">
-                                
+                            
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary btn-block"><i class="fbi bi-printer-fill"></i>
+                                        Cetak</button>
                             </div>
+                            
                         </form>
                         
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary btn-block"><i class="fbi bi-printer-fill"></i>
-                        Cetak</button>
-            </div>
+            
         </div>
     </div>
 </div>

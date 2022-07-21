@@ -111,60 +111,58 @@
     <div class="container">
         <hr style="margin-top:1px;">
         <div class="isi">
-            <h2 style="text-align:center;">LAPORAN DATA PENJUALAN 
-            @isset($month)
-                {{ $month }}
-            @endisset
-            @isset($year)
-                {{ $year }}
-            @endisset</h2>
+            <h2 style="text-align:center;">LAPORAN DATA PEMBELIAN {{ strToUpper(carbon\carbon::parse($tanggal)->translatedFormat('d F Y')) }}</h2>
             <br>
             <table id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" style="font-size: 10px !important; " role="grid"
                 aria-describedby="myTable_info">
                 <thead style="font-size:12px !important;">
                     <tr>
                         <th rowspan="2">No</th>
-                        <th>Tanggal Penjualan</th>
+                        <th>Tanggal Pembelian</th>
                         <th>No Transaksi</th>
-                        <th colspan="2">Nama Customer</th>
-                        <th rowspan="3">Harga</th>
-                        {{-- <th rowspan="3">Diskon</th> --}}
-                        <th rowspan="3">Total Harga</th>
+                        <th colspan="2">No Faktur</th>
+                        <th rowspan="2">Jumlah </th>
+                        <th rowspan="2">Rak</th>
+                        <th rowspan="2">Harga Beli/Pcs</th>
+                        <th rowspan="2">Harga Jual/Pcs</th>
+                        <th rowspan="2">Total Harga Netto</th>
                     </tr>
                     <tr>
                         <th>No</th>
-                        <th>Kode Item</th>
-                        <th>Deskripsi Item</th>
-                        <th>Qty (PCS)</th>
+                        <th>Part Number</th>
+                        <th>Part Deskripsi</th>
+                        <th>Qty SJ (PCS)</th>
+                        
                     </tr>
                 </thead>
                  <tbody >
                      @foreach($data as $d)
                      <tr>
                          <td rowspan="{{$d->span}}">{{$loop->iteration}}</td>
-                         <td>{{carbon\carbon::parse($d->tanggalPenjualan)->translatedFormat('d F Y')}}</td>
+                         <td>{{carbon\carbon::parse($d->tanggalPembelian)->translatedFormat('d F Y')}}</td>
                          <td>{{$d->noTransaksi}}</td>
-                         <td colspan="2">{{$d->namaCustomer}}</td>
-                         @foreach($d->penjualan_detail as $d)
+                         <td colspan="2">{{$d->noFaktur}}</td>
+                         <td colspan="5"></td>
+                         @foreach($d->pembelian_detail as $d)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$d->barang->itemCode}}</td>
+                                <td>{{$d->barang->partNumber}}</td>
                                 <td>{{$d->barang->deskripsi}}</td>
                                 <td>{{$d->jumlah}}</td>
-                                <td>@currency($d->hargaJual)</td>
-                               
+                                <td>{{$d->jumlahRfs}}</td>
+                                <td>{{$d->rak->kodeLokasi}}</td>
+                                <td>@currency($d->hargaBeli)</td>
+                                <td>@currency($d->barang->stok->hargaJual)</td>
                                 <td>@currency($d->hargaTotal)</td>
-                                
                             </tr>
                          @endforeach
                      </tr>
                      @endforeach
                      <tr>
                         <td colspan="9"><b>TOTAL KESELURUHAN</b></td>
-                        <td colspan="2"><b>@currency($data->sum('total'))</b></td>
+                        <td colspan="1"><b>@currency($data->sum('total'))</b></td>
                      </tr>
                  </tbody>
-                 
             </table>
             <br>
             <br>

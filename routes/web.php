@@ -95,6 +95,10 @@ Route::middleware(['auth'])->group(function () {
 
             Route::get('/cetak/pembelian', [ReportController::class, 'pembelianAll'])->name('pembelianAll');
             Route::get('/cetak/penjualan', [ReportController::class, 'penjualanAll'])->name('penjualanAll');
+            Route::post('/cetak/penjualan/tanggal', [ReportController::class, 'penjualanDate'])->name('penjualanDate');
+            Route::post('/cetak/penjualan/harian', [ReportController::class, 'penjualanDay'])->name('penjualanDay');
+            Route::post('/cetak/pembelian/tanggal', [ReportController::class, 'pembelianDate'])->name('pembelianDate');
+            Route::post('/cetak/pembelian/harian', [ReportController::class, 'pembelianDay'])->name('pembelianDay');
             Route::get('/cetak/retur', [ReportController::class, 'returAll'])->name('returAll');
             Route::get('/cetak/pengiriman', [ReportController::class, 'pengirimanAll'])->name('pengirimanAll');
             Route::get('/cetak/target-penjualan', [ReportController::class, 'targetPenjualan'])->name('targetPenjualan');

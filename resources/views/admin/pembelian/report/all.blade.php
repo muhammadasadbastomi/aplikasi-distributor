@@ -111,7 +111,14 @@
     <div class="container">
         <hr style="margin-top:1px;">
         <div class="isi">
-            <h2 style="text-align:center;">LAPORAN DATA PEMBELIAN</h2>
+            <h2 style="text-align:center;">LAPORAN DATA PEMBELIAN
+                @isset($month)
+                {{ $month }}
+            @endisset
+            @isset($year)
+                {{ $year }}
+            @endisset
+            </h2>
             <br>
             <table id="myTable" class="table table-bordered table-striped dataTable no-footer text-center" style="font-size: 10px !important; " role="grid"
                 aria-describedby="myTable_info">
